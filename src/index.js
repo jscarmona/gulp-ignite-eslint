@@ -20,7 +20,7 @@ export default {
    * @type {Object}
    */
   config: {
-    src: ['./**/*.js', '!./node_modules/**'],
+    src: './client/app/**/*.js',
     options: {},
     watch: false,
     watchFiles: [],
