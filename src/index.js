@@ -1,6 +1,8 @@
 import gulp from 'gulp';
 import eslint from 'gulp-eslint';
+import path from 'path';
 import yargs from 'yargs';
+import { IGNITE_UTILS } from 'gulp-ignite/utils';
 
 export default {
   /**
@@ -46,12 +48,19 @@ export default {
     const watchFiles = config.watchFiles.length ? config.watchFiles : config.src;
 
     if (watch) {
-      gulp.watch(watchFiles, ['eslint']);
+      gulp.watch(watchFiles, (file) => {
+        const startTime = IGNITE_UTILS.startTime();
+
+        IGNITE_UTILS.log(`eslint => ${path.basename(file.path)}`);
+
+        lint()
+          .pipe(eslint.results((results) => {
+            IGNITE_UTILS.notify(`eslint complete --- ${IGNITE_UTILS.getDuration(startTime)}`, results.errorCount === 0);
+          }));
+      });
     }
 
-    gulp.src(config.src)
-      .pipe(eslint(options))
-      .pipe(eslint.format())
+    lint()
       .pipe(eslint.results((results) => {
         if (results.errorCount > 0) {
           error();
@@ -61,5 +70,11 @@ export default {
 
         end();
       }));
+
+    function lint() {
+      return gulp.src(config.src)
+        .pipe(eslint(options))
+        .pipe(eslint.format());
+    }
   },
 };

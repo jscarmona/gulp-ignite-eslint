@@ -30,6 +30,7 @@
   "dependencies": {
     "gulp": "^3.9.0",
     "gulp-eslint": "2.0.0",
+    "gulp-ignite": "1.1.2",
     "yargs": "^3.32.0"
   },
   "devDependencies": {
