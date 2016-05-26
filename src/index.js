@@ -31,7 +31,7 @@ export default {
    * @type {Object}
    */
   help: {
-    watch: 'Watch files for changes and trigger itself',
+    'watch, -w': 'Watch files for changes and trigger itself',
   },
 
   /**
@@ -42,7 +42,7 @@ export default {
    */
   fn(config, end, error) {
     const options = config.options || null;
-    const watch = yargs.argv.watch || config.watch;
+    const watch = yargs.argv.watch || yargs.argv.w || config.watch;
     const watchFiles = config.watchFiles.length ? config.watchFiles : config.src;
 
     if (watch) {
