@@ -22,7 +22,7 @@ export default {
    * @type {Object}
    */
   config: {
-    src: './client/app/**/*.js',
+    src: ['./client/app/**/*.js'],
     options: {},
     watch: false,
     watchFiles: [],

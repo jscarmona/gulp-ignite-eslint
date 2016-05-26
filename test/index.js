@@ -49,7 +49,7 @@ describe('ESLint Task', () => {
     });
 
     it('should contain a `watch` property', () => {
-      expect(task.help.watch).to.be.a('string');
+      expect(task.help['watch, -w']).to.be.a('string');
     });
   });
 
