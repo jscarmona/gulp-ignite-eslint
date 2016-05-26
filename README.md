@@ -23,10 +23,7 @@ import eslint from 'gulp-eslint';
 const tasks = [eslint];
 const options = {
   eslint: {
-    src: ['./**/*.js', '!./node_modules/**'],
-    options: {},
-    watch: false,
-    watchFiles: [],
+    watchFiles: ['./client/app/**/*.js'],
   },
 };
 
@@ -36,50 +33,21 @@ ignite.start(tasks, options);
 
 ## usage
 
+Run eslint on src files.
+
 ```bash
 $ gulp eslint --watch
 ```
 
-### available runtime overrides
+##### arguments
+- `--watch, -w` - Watch files for changes and trigger eslint.
 
-* --watch
-
-## options
-
-### src
-
-**Type:** `String`  
-**Default:** `['./**/*.js', '!./node_modules/**']`
-
-The source files that should be linted.
-
-### options
-
-**Type:** `Object`
-**Defaults:** `{}`
-
-Options to pass through to ESlint CLIEngine options. Check out [eslint options](http://eslint.org/docs/developer-guide/nodejs-api#cliengine) to see the full list.
-
-### watch
-
-**Type:** `Boolean`  
-**Default:** `false`
-
-Whether or not to watch for file changes.
-
-### watchFiles
-
-**Type:** `Array`  
-**Default:** `[]`
-
-Files to watch for changes.
-
-### deps
-
-**Type:** `Array`  
-**Default:** `[]`
-
-Any gulp tasks that eslint would be dependent of.
+##### options
+- `src` - The source files that should be linted. (**Default:** `['./client/app/**/*.js']`)
+- `options` - Options to pass through to the ESlint CLIEngine. Check out [eslint options](http://eslint.org/docs/developer-guide/nodejs-api#cliengine) to see the full list. (**Default:** `{}`)
+- `watch` - Whether or not to watch for file changes. (**Default:** `false`)
+- `watchFiles` - Files to watch for changes. (**Default:** `[]`)
+- `deps` - Any gulp tasks that task would be dependent of. (**Default:** `[]`)
 
 ## license
 
