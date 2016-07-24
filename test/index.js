@@ -32,24 +32,11 @@ describe('ESLint Task', () => {
     it('should contain a `options` property', () => {
       expect(task.config.options).to.be.a('object');
     });
-
-    it('should contain a `watch` property', () => {
-      expect(task.config.watch).to.be.a('boolean');
-      expect(task.config.watch).to.be.false;
-    });
-
-    it('should contain a `watchFiles` property', () => {
-      expect(task.config.watchFiles).to.be.a('array');
-    });
   });
 
   describe('#help', () => {
     it('should be an object', () => {
       expect(task.help).to.be.a('object');
-    });
-
-    it('should contain a `watch` property', () => {
-      expect(task.help['watch, -w']).to.be.a('string');
     });
   });
 

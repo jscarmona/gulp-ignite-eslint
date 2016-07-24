@@ -22,9 +22,7 @@ import eslint from 'gulp-eslint';
 
 const tasks = [eslint];
 const options = {
-  eslint: {
-    watchFiles: ['./client/app/**/*.js'],
-  },
+  eslint: {},
 };
 
 ignite.start(tasks, options);
@@ -36,17 +34,12 @@ ignite.start(tasks, options);
 Run eslint on src files.
 
 ```bash
-$ gulp eslint --watch
+$ gulp eslint
 ```
-
-##### arguments
-- `--watch, -w` - Watch files for changes and trigger eslint.
 
 ##### options
 - `src` - The source files that should be linted. (**Default:** `['./client/app/**/*.js']`)
 - `options` - Options to pass through to the ESlint CLIEngine. Check out [eslint options](http://eslint.org/docs/developer-guide/nodejs-api#cliengine) to see the full list. (**Default:** `{}`)
-- `watch` - Whether or not to watch for file changes. (**Default:** `false`)
-- `watchFiles` - Files to watch for changes. (**Default:** `[]`)
 - `deps` - Any gulp tasks that task would be dependent of. (**Default:** `[]`)
 
 ## license

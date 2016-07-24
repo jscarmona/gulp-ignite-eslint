@@ -1,8 +1,5 @@
 import gulp from 'gulp';
 import eslint from 'gulp-eslint';
-import path from 'path';
-import yargs from 'yargs';
-import { IGNITE_UTILS } from 'gulp-ignite/utils';
 
 export default {
   /**
@@ -24,17 +21,13 @@ export default {
   config: {
     src: ['./client/app/**/*.js'],
     options: {},
-    watch: false,
-    watchFiles: [],
   },
 
   /**
    * Task help options
    * @type {Object}
    */
-  help: {
-    'watch, -w': 'Watch files for changes and trigger itself',
-  },
+  help: {},
 
   /**
    * Task function
@@ -44,23 +37,8 @@ export default {
    */
   fn(config, end, error) {
     const options = config.options || null;
-    const watch = yargs.argv.watch || yargs.argv.w || config.watch;
-    const watchFiles = config.watchFiles.length ? config.watchFiles : config.src;
 
-    if (watch) {
-      gulp.watch(watchFiles, (file) => {
-        const startTime = IGNITE_UTILS.startTime();
-
-        IGNITE_UTILS.log(`eslint => ${path.basename(file.path)}`);
-
-        lint()
-          .pipe(eslint.results((results) => {
-            IGNITE_UTILS.notify(`eslint complete --- ${IGNITE_UTILS.getDuration(startTime)}`, results.errorCount === 0);
-          }));
-      });
-    }
-
-    lint()
+    return lint()
       .pipe(eslint.results((results) => {
         if (results.errorCount > 0) {
           error();
