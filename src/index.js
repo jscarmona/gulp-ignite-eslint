@@ -42,11 +42,7 @@ export default {
       .pipe(eslint.results((results) => {
         if (results.errorCount > 0) {
           error();
-
-          return;
         }
-
-        end();
       }));
 
     function lint() {
