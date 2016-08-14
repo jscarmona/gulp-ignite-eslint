@@ -28,10 +28,9 @@
   },
   "homepage": "https://github.com/jscarmona/gulp-ignite-eslint#readme",
   "dependencies": {
-    "gulp": "^3.9.0",
-    "gulp-eslint": "2.0.0",
-    "gulp-ignite": "1.1.2",
-    "yargs": "^3.32.0"
+    "gulp": "3.9.0",
+    "gulp-eslint": "3.0.1",
+    "gulp-ignite": "1.1.2"
   },
   "devDependencies": {
     "babel-cli": "6.6.4",
