@@ -1,7 +1,7 @@
 {
   "name": "gulp-ignite-eslint",
   "description": "An eslint gulp ignite task.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
