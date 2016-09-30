@@ -15,18 +15,12 @@ $ npm install --save-dev gulp-ignite gulp-ignite-eslint
 ## example
 
 ```js
-'use strict';
-
-import ignite from 'gulp-ignite';
+import { task } from 'gulp-ignite';
 import eslint from 'gulp-eslint';
 
-const tasks = [eslint];
-const options = {
-  eslint: {},
-};
-
-ignite.start(tasks, options);
-
+task(eslint);
+// or if you want to rename it
+// task('cool-eslint-name', eslint);
 ```
 
 ## usage
