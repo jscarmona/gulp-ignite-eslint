@@ -20,6 +20,7 @@ export default {
    */
   config: {
     src: ['./client/app/**/*.js'],
+    exitOnFail: true,
     options: {},
   },
 
@@ -40,7 +41,7 @@ export default {
 
     return lint()
       .pipe(eslint.results((results) => {
-        if (results.errorCount > 0) {
+        if (results.errorCount > 0 && config.exitOnFail) {
           error();
         }
       }));
